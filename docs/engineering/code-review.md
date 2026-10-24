@@ -30,7 +30,7 @@ The Spec axis needs a spec to exist and be findable. It looks in this order:
 3. A spec file under `docs/`, `specs/`, or `.scratch/` matching the branch or feature name.
 4. Asking you.
 
-Step 1 depends on the tracker doc, which [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills) writes. Without it the axis still works if you hand it a path. With no spec at all, the skill skips the Spec sub-agent and the report says "no spec available" rather than inventing requirements.
+Step 1 depends on the tracker doc, which [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills) writes. Without it the axis still works if you hand it a path. With no spec at all, the skill skips the Spec sub-agent and the report says "no spec available" rather than inventing requirements. The one exception is a project with a Lean spec, below: its claims are checked either way.
 
 ## The two axes
 
@@ -44,6 +44,8 @@ Step 1 depends on the tracker doc, which [setup-matt-pocock-skills](https://aihe
 This design exists to avoid a generic review skill that does not know your standards. Such a skill flags what is deliberate in your codebase and misses the invariants your codebase depends on. So the repo's own documentation is the [primary source](https://www.aihero.dev/ai-coding-dictionary/primary-source) on the Standards axis, and **the repo always overrides**.
 
 The **smell baseline** sits under the repo's standards. It is twelve code smells from chapter 3 of Fowler's _Refactoring_: Mysterious Name, Duplicated Code, Feature Envy, Data Clumps, Primitive Obsession, Repeated Switches, Shotgun Surgery, Divergent Change, Speculative Generality, Message Chains, Middle Man, Refused Bequest. Each is a labelled heuristic ("possible Feature Envy"), never a hard violation. Each states what the smell is and how to fix it, so a finding comes with a fix attached rather than only a complaint. Both axes skip anything your linter already enforces.
+
+When the project keeps a Lean spec, the Spec axis also reports every claim the diff weakens or deletes, and every `sorry` it adds, quoting the old and new statement. A weakened claim is a different promise, and a proof that went through only because its statement got weaker is the failure this check exists to catch.
 
 ## Common questions
 

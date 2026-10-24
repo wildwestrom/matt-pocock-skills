@@ -29,6 +29,8 @@ Everything lands on one branch. Each implementer:
 2. builds its ticket with [tdd](https://aihero.dev/skills-tdd), red-green one slice at a time,
 3. merges the integration branch tip into its own branch before reporting done, so landing it is a fast-forward.
 
+When the project keeps a Lean spec, each implementer starts with the core, as in [implement](https://aihero.dev/skills-implement): an unproved claim is the red, its proof is the green, and only then does `tdd` build the shell. A ticket is not done while one of its claims is still `sorry`. The claim tickets [to-tickets](https://aihero.dev/skills-to-tickets) writes for each `sorry` are core only, so they finish when the proof lands, with no `tdd` step. A claim that will not prove as stated comes back to you instead of being weakened, and the tickets that rest on it wait.
+
 The tracker decides whether a pull request exists at all. If your tracker closes work through PRs, or you ask for one, the skill opens a draft PR after the first merge and marks it ready at the end. Otherwise the run stops on the integration branch with every ticket resolved the way your tracker closes work, which works fully offline against a local markdown tracker.
 
 Implementers talk to the orchestrator through [context pointers](https://www.aihero.dev/ai-coding-dictionary/context-pointer) (the spec, the ticket, shared exploration notes, earlier commits) rather than pasted summaries. This keeps each subagent's prompt small and leaves room in the orchestrator's window for the graph.

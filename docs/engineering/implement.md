@@ -40,6 +40,8 @@ A run has five steps, in order:
 
 One run covers one ticket. The tickets [to-tickets](https://aihero.dev/skills-to-tickets) produces are tracer-bullet vertical slices sized to fit a single fresh [context window](https://www.aihero.dev/ai-coding-dictionary/context-window), so the intended rhythm is: clear context, implement one ticket, commit, clear again. Each ticket is self-contained, so you can discard the previous ticket's context.
 
+When the project keeps a Lean spec, the run starts with the core: an unproved claim is the red, its proof is the green, and only then does `tdd` build the shell. A ticket is not done while one of its claims is still `sorry`. A claim that will not prove as stated comes back to you instead of being weakened, because a weaker claim is a different promise.
+
 ## Pre-agreed seams
 
 The skill's central idea is the **seam**, the public boundary you observe behaviour at without reaching inside. Tests live at seams. When the seam is agreed before any code exists, the tests last, and you can rewrite the implementation underneath without changing them.
