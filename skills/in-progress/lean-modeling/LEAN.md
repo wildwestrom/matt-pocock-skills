@@ -39,6 +39,10 @@ Two ways to turn checks into claims:
 
 A claim is proved or it is open. An open claim is a `sorry`, and `to-tickets` turns each one into a ticket that proves it; `sorry` never reaches `main`. A claim weakened to get a proof through is a different claim: put the weaker statement to the user before proving it.
 
+## Lean code
+
+When the code is Lean, the shell runs the core directly, and a claim can sit on the code itself. Write the **scaffold** of each agreed piece where the code will live: its types and signatures in full, and every body the decisions do not settle as `sorry`. That `sorry` is an **unbuilt definition**, not a claim: the ticket that builds the behaviour fills it in. State each claim against the scaffold straight away, so the claims are red before any body exists.
+
 ## Names
 
 The spec is worth something only when everyone is sure what it says, and names carry most of that. An unclear name is a forced question: propose the rename to the user, and expect several rounds.
@@ -60,7 +64,7 @@ When the project has no Lean spec yet, the user has already said where it lives 
 
 ## Done
 
-- `lake build` passes, and every `sorry` is an open claim.
+- `lake build` passes, and every `sorry` is an open claim or an unbuilt definition.
 - Every new rule has a claim, or is in the spec gaps as open.
 - The project's spec lint, if it has one, passes.
 - The reading order in `README.md` is current.
