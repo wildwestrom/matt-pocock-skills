@@ -13,7 +13,7 @@ You invoke this by typing `/triage` and then describing what you want in plain l
 | What you have | Where to go |
 | --- | --- |
 | A tracker full of raw reports from other people | `/triage` |
-| A rough idea of your own, nothing written down | [grill-with-docs](https://aihero.dev/skills-grill-with-docs) |
+| A rough idea of your own, nothing written down | [grill-with-lean](https://aihero.dev/skills-grill-with-lean) |
 | A settled conversation or spec to split into agent-ready tickets | [to-tickets](https://aihero.dev/skills-to-tickets) |
 | A confirmed bug that needs a root cause, not a label | [diagnosing-bugs](https://aihero.dev/skills-diagnosing-bugs) |
 

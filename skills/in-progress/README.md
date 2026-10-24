@@ -15,5 +15,3 @@ npx skills@latest add mattpocock/skills --skill=<name>
 - **[claude-handoff](./claude-handoff/SKILL.md)**: Hand the current conversation off to a fresh background agent that picks up the work immediately, seeded with a handoff summary via `claude --bg`. User-invoked.
 - **[setup-ts-deep-modules](./setup-ts-deep-modules/SKILL.md)**: Wire dependency-cruiser into a TypeScript repo so each package is a deep module: implementation hidden in subfolders, reachable only through its entry-point files, tests exercising it through those. User-invoked.
 - **[software-factory](./software-factory/SKILL.md)**: Shared language for designing a software factory: the tasks it runs and the services it plugs into. Call it alongside a grilling session. User-invoked.
-- **[grill-with-lean](./grill-with-lean/SKILL.md)**: A relentless interview that writes the decisions as a Lean spec. User-invoked.
-- **[lean-modeling](./lean-modeling/SKILL.md)**: Build and sharpen a project's Lean spec, with a subagent writing the Lean and ADRs for shell decisions.
