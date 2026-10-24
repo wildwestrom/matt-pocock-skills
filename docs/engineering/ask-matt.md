@@ -12,7 +12,7 @@ You invoke this by typing `/ask-matt`; the agent won't reach for it on its own.
 | --- | --- |
 | An idea, and no idea where to start | The head of the main flow, and whether the build is small enough to skip the spec |
 | Bugs and requests arriving from other people | The [triage](https://aihero.dev/skills-triage) on-ramp, and why [tickets](https://www.aihero.dev/ai-coding-dictionary/ticket) you generated yourself don't belong on it |
-| Two skills that look interchangeable | The line between them, and it is usually one concrete test rather than a matter of taste. [grill-me](https://aihero.dev/skills-grill-me) or [grill-with-docs](https://aihero.dev/skills-grill-with-docs) turns on whether you are in a working directory; [grill-with-docs](https://aihero.dev/skills-grill-with-docs) or [wayfinder](https://aihero.dev/skills-wayfinder) turns on whether the effort fits one session |
+| Two skills that look interchangeable | The line between them, and it is usually one concrete test rather than a matter of taste. [grill-me](https://aihero.dev/skills-grill-me) or [grill-with-lean](https://aihero.dev/skills-grill-with-lean) turns on whether you are in a working directory; [grill-with-lean](https://aihero.dev/skills-grill-with-lean) or [wayfinder](https://aihero.dev/skills-wayfinder) turns on whether the effort fits one session |
 | A long session and a decision about the [context](https://www.aihero.dev/ai-coding-dictionary/context) | The ordered tree over the five options at a phase boundary |
 | A skill you have already picked | Nothing useful. Invoke that skill directly. |
 
@@ -74,7 +74,7 @@ That advice is often correct, but the edit rarely lasts. Someone asked it how to
 
 **It named a skill I don't have, or missed one I do.**
 
-Check the changelog for a rename before assuming it is gone. `writing-great-skills` became [writing-for-agents](https://aihero.dev/skills-writing-for-agents) with no alias, and `pathfinder` became [wayfinder](https://aihero.dev/skills-wayfinder). Six skills were retired outright: `ubiquitous-language`, `design-an-interface`, `qa` and `request-refactor-plan` into the skills that absorbed them, `to-spec` (once `to-prd`) because `to-tickets` reads the thread directly, and `implement-spec` with it. If it misses a skill you have, that is the router's own lag, described above.
+Check the changelog for a rename before assuming it is gone. `writing-great-skills` became [writing-for-agents](https://aihero.dev/skills-writing-for-agents) with no alias, and `pathfinder` became [wayfinder](https://aihero.dev/skills-wayfinder). Seven skills were retired outright: `ubiquitous-language`, `design-an-interface`, `qa` and `request-refactor-plan` into the skills that absorbed them, `to-spec` (once `to-prd`) because `to-tickets` reads the thread directly, `implement-spec` with it, and `grill-with-docs`, replaced by [grill-with-lean](https://aihero.dev/skills-grill-with-lean). If it misses a skill you have, that is the router's own lag, described above.
 
 ## It's working if
 
@@ -86,6 +86,6 @@ Check the changelog for a rename before assuming it is gone. `writing-great-skil
 
 ## Where it fits
 
-`ask-matt` is a **standalone router** that sits over the whole set. It is never a step in a chain. It points into every chain, and the other docs pages link back to it so none of them has to redraw the graph. From here you most often land on [grill-with-docs](https://aihero.dev/skills-grill-with-docs), the head of the main flow, or [triage](https://aihero.dev/skills-triage), the on-ramp for work that arrived rather than work you started.
+`ask-matt` is a **standalone router** that sits over the whole set. It is never a step in a chain. It points into every chain, and the other docs pages link back to it so none of them has to redraw the graph. From here you most often land on [grill-with-lean](https://aihero.dev/skills-grill-with-lean), the head of the main flow, or [triage](https://aihero.dev/skills-triage), the on-ramp for work that arrived rather than work you started.
 
 It is a [secondary source](https://www.aihero.dev/ai-coding-dictionary/secondary-source) over the skills it describes. Where the router and a `SKILL.md` disagree, the `SKILL.md` is right.

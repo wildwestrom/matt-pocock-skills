@@ -8,11 +8,11 @@ It plans and does not build. Every ticket asks a question, and the answer is a d
 
 You invoke this by typing `/wayfinder`; the [agent](https://www.aihero.dev/ai-coding-dictionary/agent) won't reach for it on its own.
 
-It is the heaviest flow in the set, so the trigger is narrow. The effort must be larger than one agent session can hold, and the route to the destination must be unclear. The split is session count: `/grill-with-docs` for single-session planning, `/wayfinder` for multi-session planning.
+It is the heaviest flow in the set, so the trigger is narrow. The effort must be larger than one agent session can hold, and the route to the destination must be unclear. The split is session count: `/grill-with-lean` for single-session planning, `/wayfinder` for multi-session planning.
 
 | What you have in front of you | What to run |
 | --- | --- |
-| A well-scoped feature you can settle in one sitting | [grill-me](https://aihero.dev/skills-grill-me), or [grill-with-docs](https://aihero.dev/skills-grill-with-docs) when there is a codebase |
+| A well-scoped feature you can settle in one sitting | [grill-me](https://aihero.dev/skills-grill-me), or [grill-with-lean](https://aihero.dev/skills-grill-with-lean) when there is a codebase |
 | A greenfield project, or a build spanning many sessions, with the route still unclear | `/wayfinder` |
 | A thread where the deciding is already done | [to-tickets](https://aihero.dev/skills-to-tickets): skip straight past the map |
 | A cleared wayfinder map | [to-tickets](https://aihero.dev/skills-to-tickets), then [implement](https://aihero.dev/skills-implement) |
@@ -56,8 +56,8 @@ Research is the only exception to *one ticket per session*.
 
 ## Common questions
 
-**How is this different from `/grill-with-docs`? Which should I start with?**
-Session count, not project size. `/grill-with-docs` is single-session planning; wayfinder is multi-session planning. If you can hold the whole thing in one conversation, grilling is cheaper and better, and wayfinder is slower and denser for that case. The community shorthand is that wayfinder only makes sense if the work does not fit into a single session. This is by far the most-asked wayfinder question. People keep asking it because the skill descriptions do not tell you where your own task sits on that line. You have to judge the session count yourself.
+**How is this different from `/grill-with-lean`? Which should I start with?**
+Session count, not project size. `/grill-with-lean` is single-session planning; wayfinder is multi-session planning. If you can hold the whole thing in one conversation, grilling is cheaper and better, and wayfinder is slower and denser for that case. The community shorthand is that wayfinder only makes sense if the work does not fit into a single session. This is by far the most-asked wayfinder question. People keep asking it because the skill descriptions do not tell you where your own task sits on that line. You have to judge the session count yourself.
 
 **When it asks for the "destination", does it mean the end of this session or the end of everything?**
 The end of the whole map, not just the first session. The question reads ambiguously, but wayfinder is a multi-session tool by definition, so a session-scoped answer never makes sense. Typical destinations are a [spec](https://www.aihero.dev/ai-coding-dictionary/spec) to hand off, a decision to lock before planning starts, a proof of concept, or an in-place change such as a data migration.

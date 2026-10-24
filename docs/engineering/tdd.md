@@ -13,7 +13,7 @@ Reach for it when there is a concrete behaviour to build, with an input and an o
 | Your situation | Where to go |
 | --- | --- |
 | A behaviour with defined inputs and outputs (business logic, a request/response contract, a transformation, validation) | `tdd` |
-| The behaviour isn't pinned down yet | [grill-with-docs](https://aihero.dev/skills-grill-with-docs) first |
+| The behaviour isn't pinned down yet | [grill-with-lean](https://aihero.dev/skills-grill-with-lean) first |
 | The question is really the shape of the interface, not the tests | [codebase-design](https://aihero.dev/skills-codebase-design) |
 | You have a [spec](https://www.aihero.dev/ai-coding-dictionary/spec) or [tickets](https://www.aihero.dev/ai-coding-dictionary/ticket) and want the whole build run for you | [implement](https://aihero.dev/skills-implement), which drives `tdd` per ticket |
 | Config, wiring, glue, type annotations, straight CRUD delegation | Nothing here fits well; see the open gap below |
@@ -88,7 +88,7 @@ No. Run against one ticket, it can propose work that belongs to a sibling ticket
 `tdd` runs inside the build step of the main chain; it is not a step of its own:
 
 ```txt
-grill-with-docs → to-tickets → implement → code-review → retro
+grill-with-lean → to-tickets → implement → code-review → retro
 ```
 
 [implement](https://aihero.dev/skills-implement) drives `tdd` per ticket, and [code-review](https://aihero.dev/skills-code-review) checks afterwards that only the agreed seams were used, and owns the refactoring `tdd` no longer does. Its other neighbour is [codebase-design](https://aihero.dev/skills-codebase-design), the shared source of the seam and deep-module vocabulary that `tdd` uses. You can also reach for it on its own, whenever there is a concrete behaviour to build and no full spec in play. When you are unsure which skill fits your situation, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.

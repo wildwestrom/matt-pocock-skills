@@ -13,7 +13,7 @@ Reach for it when a decision is blocked on knowledge that lives in one other per
 | The answers are in… | Reach for |
 | --- | --- |
 | Your own head, unsharpened | [grill-me](https://aihero.dev/skills-grill-me) |
-| The codebase | [grill-with-docs](https://aihero.dev/skills-grill-with-docs) |
+| The codebase | [grill-with-lean](https://aihero.dev/skills-grill-with-lean) |
 | Someone else's head | `to-questionnaire` |
 | Nobody's head yet, the question needs something to react to | [prototype](https://aihero.dev/skills-prototype) |
 
@@ -75,4 +75,4 @@ Yes, and plenty of people did before it existed: `OPEN_QUESTIONS.md` files, spre
 
 `to-questionnaire` is a reach-for-it-anytime standalone. You use it where your own knowledge ends and the next move is to ask another person, not to run another skill. That is most often mid-flow, when planning has stalled on something that isn't yours to decide.
 
-Its neighbour is [grill-me](https://aihero.dev/skills-grill-me), and the two differ on where the answers live. Grilling gets the answers from you; a questionnaire gets them from someone else. Feed what comes back into another grilling round, or into [grill-with-docs](https://aihero.dev/skills-grill-with-docs) if the work is heading for a build. When you're unsure which skill fits the moment, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
+Its neighbour is [grill-me](https://aihero.dev/skills-grill-me), and the two differ on where the answers live. Grilling gets the answers from you; a questionnaire gets them from someone else. Feed what comes back into another grilling round, or into [grill-with-lean](https://aihero.dev/skills-grill-with-lean) if the work is heading for a build. When you're unsure which skill fits the moment, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.

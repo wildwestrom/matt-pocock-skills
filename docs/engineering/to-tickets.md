@@ -13,7 +13,7 @@ You invoke this by typing `/to-tickets`. The [agent](https://www.aihero.dev/ai-c
 | You have a spec issue and the build spans several sessions | `/to-tickets`, or `/to-tickets #<spec_issue>` |
 | The plan is only in the conversation, never written up | `/to-tickets` reads the thread directly, no spec needed |
 | The whole change fits in one context window | [implement](https://aihero.dev/skills-implement), skip the tickets |
-| Nothing is decided yet | [grill-with-docs](https://aihero.dev/skills-grill-with-docs) first |
+| Nothing is decided yet | [grill-with-lean](https://aihero.dev/skills-grill-with-lean) first |
 | A [wayfinder](https://aihero.dev/skills-wayfinder) map has cleared | `/to-tickets #<map_issue>` |
 
 Tickets that `to-tickets` produced are agent-ready by construction. Don't run [triage](https://aihero.dev/skills-triage) over them. Triage is for work that arrived from someone else.
@@ -97,7 +97,7 @@ The skill stops at the artifact, and there is no auto-dispatch mode. Dispatch is
 `to-tickets` is a step in the main build chain:
 
 ```txt
-grill-with-docs → to-tickets → implement → code-review → retro
+grill-with-lean → to-tickets → implement → code-review → retro
 ```
 
-Upstream is [grill-with-docs](https://aihero.dev/skills-grill-with-docs), whose settled thread it slices directly. Keep both in one context window, with no clear between them. Downstream is [implement](https://aihero.dev/skills-implement), which builds one ticket per fresh session, driving [tdd](https://aihero.dev/skills-tdd) for the tests and closing with [code-review](https://aihero.dev/skills-code-review). When you're unsure which skill or flow fits, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
+Upstream is [grill-with-lean](https://aihero.dev/skills-grill-with-lean), whose settled thread and Lean it slices directly. Keep both in one context window, with no clear between them. Downstream is [implement](https://aihero.dev/skills-implement), which builds one ticket per fresh session, driving [tdd](https://aihero.dev/skills-tdd) for the tests and closing with [code-review](https://aihero.dev/skills-code-review). When you're unsure which skill or flow fits, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
