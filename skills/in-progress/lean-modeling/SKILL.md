@@ -25,6 +25,8 @@ Actively build and sharpen the project's Lean spec as you design: challenging na
 
 Create files lazily: only when you have something to write. If no Lean project exists, ask the user two questions before the first decision goes to the Lean writer: where the spec lives (`spec/` at the repo root unless they say otherwise), and whether it depends on Mathlib. The Lean writer sets it up from there. If no `docs/adr/` exists, create it when the first ADR is needed.
 
+When the code is Lean, a decision about that code goes into the code itself, even code not yet written: the Lean writer writes its **scaffold** where the code will live, and its claims sit after the definitions they are about. Only a decision about the core model goes to `spec/`.
+
 ## During the session
 
 ### Challenge against the spec
@@ -50,10 +52,10 @@ When a decision settles, dispatch a **Lean writer** subagent in the background w
 The Lean writer:
 
 - sets up the Lean project, if there is none, as `LEAN.md` says;
-- adds the definitions and claims the decision implies;
+- adds the definitions and claims the decision implies, leaving any body the decision does not settle as an unbuilt definition;
 - tries cheap proofs (`decide`, `simp`, `omega`) and leaves the rest as `sorry`;
 - stops when `lake build` passes with every statement typechecking;
-- reports only the names and statements it added, each marked proved or open, and every **forced question**: a decision the model needed that the user has not made. It never answers one itself.
+- reports only the names and statements it added, each marked proved, open, or unbuilt, and every **forced question**: a decision the model needed that the user has not made. It never answers one itself.
 
 Put each forced question to the user.
 

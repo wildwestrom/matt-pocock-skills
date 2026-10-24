@@ -14,8 +14,7 @@ You invoke this by typing `/triage` and then describing what you want in plain l
 | --- | --- |
 | A tracker full of raw reports from other people | `/triage` |
 | A rough idea of your own, nothing written down | [grill-with-docs](https://aihero.dev/skills-grill-with-docs) |
-| A settled conversation to turn into a [spec](https://www.aihero.dev/ai-coding-dictionary/spec) | [to-spec](https://aihero.dev/skills-to-spec) |
-| A spec to split into agent-ready tickets | [to-tickets](https://aihero.dev/skills-to-tickets) |
+| A settled conversation or spec to split into agent-ready tickets | [to-tickets](https://aihero.dev/skills-to-tickets) |
 | A confirmed bug that needs a root cause, not a label | [diagnosing-bugs](https://aihero.dev/skills-diagnosing-bugs) |
 
 ## Prerequisites
@@ -68,10 +67,10 @@ Discovery shows only *external* PRs, because a collaborator's in-progress branch
 
 ## Common questions
 
-**I ran `/to-spec` and `/to-tickets`, and now those tickets are sitting there untriaged. Do I run `/triage` over them?**
-No. They are already agent-ready. `to-tickets` applies the `ready-for-agent` label when it publishes them, so an AFK runner picks them up without another pass. The user who hit this had run the spec flow and seen `needs-triage` on the output, and their AFK runner ignored everything. `triage` is the on-ramp for work that arrives from outside. The spec flow is the lane for work you start yourself. The two meet at `ready-for-agent`, not before.
+**I ran `/to-tickets`, and now those tickets are sitting there untriaged. Do I run `/triage` over them?**
+No. They are already agent-ready. `to-tickets` applies the `ready-for-agent` label when it publishes them, so an AFK runner picks them up without another pass. The user who hit this had run the build flow and seen `needs-triage` on the output, and their AFK runner ignored everything. `triage` is the on-ramp for work that arrives from outside. The build flow is the lane for work you start yourself. The two meet at `ready-for-agent`, not before.
 
-**Is `triage` still relevant now that there's a `to-spec` → `to-tickets` → `implement` flow?**
+**Is `triage` still relevant now that there's a `to-tickets` → `implement` flow?**
 Only if you have inbound work. `triage` is older than that flow and does a different job: it handles reports other people filed. If everything in your tracker came from your own planning, you will rarely use it. If you maintain anything public, or your team files bugs to you, it is where that work starts. The main use is open-source repos that take issues from external contributors.
 
 **The agent tried to apply `ready-for-agent` and `gh` said the label doesn't exist.**

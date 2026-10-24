@@ -62,7 +62,7 @@ When grilling, ask one question at a time.
 Say so. "I don't know" is a real answer, and a question you can't answer is usually a sign to prototype rather than to guess.
 
 **Do I start a fresh session before writing the spec?**
-No. The value of the session is the [context](https://www.aihero.dev/ai-coding-dictionary/context) you just built. Hand the same conversation straight to [to-spec](https://aihero.dev/skills-to-spec).
+No. The value of the session is the [context](https://www.aihero.dev/ai-coding-dictionary/context) you just built. Hand the same conversation straight to [to-tickets](https://aihero.dev/skills-to-tickets).
 
 **Does the model matter?**
 More than for most skills. Grilling depends on the [model](https://www.aihero.dev/ai-coding-dictionary/model)'s own knowledge of how systems break, so use your best one. Implementation mostly follows context, so a cheaper model is fine there.
@@ -73,4 +73,4 @@ More than for most skills. Grilling depends on the [model](https://www.aihero.de
 
 Portability is the only difference from [grill-with-docs](https://aihero.dev/skills-grill-with-docs). That skill runs the same interview, but reads a codebase to align against and records what it learns as `GLOSSARY.md` and ADRs. Both use the [grilling](https://aihero.dev/skills-grilling) skill underneath. `grill-me` is the user-invoked entry point that keeps no state.
 
-If what you grilled does turn out to be software, you can hand the same conversation to [to-spec](https://aihero.dev/skills-to-spec) and carry on into the build flow (an option, not the point of the skill). When you're unsure which flow fits, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
+If what you grilled does turn out to be software, you can hand the same conversation to [to-tickets](https://aihero.dev/skills-to-tickets) and carry on into the build flow (an option, not the point of the skill). When you're unsure which flow fits, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
