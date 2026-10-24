@@ -75,7 +75,7 @@ Prompt it with the next thing you are building. If a big build is coming up, poi
 
 **Does it work on a large legacy codebase?**
 
-Partly. It works well on big existing codebases that lack consistent structure, and it is the recommended upkeep tool after any one-time structural setup. But users with out-of-control projects report it "helped a little but still doesn't seem to cut it." One developer with an eight-year-old legacy codebase reported that the model went in circles, though the same skill produces a clean graph on a tidy repo. There is no dedicated `/refactor` skill for that case yet. If the codebase has no shared vocabulary, run [grill-with-docs](https://aihero.dev/skills-grill-with-docs) first to create one. That usually makes this skill's output much better.
+Partly. It works well on big existing codebases that lack consistent structure, and it is the recommended upkeep tool after any one-time structural setup. But users with out-of-control projects report it "helped a little but still doesn't seem to cut it." One developer with an eight-year-old legacy codebase reported that the model went in circles, though the same skill produces a clean graph on a tidy repo. There is no dedicated `/refactor` skill for that case yet. If the codebase has no shared vocabulary, run [grill-with-lean](https://aihero.dev/skills-grill-with-lean) or [domain-modeling](https://aihero.dev/skills-domain-modeling) first to create one. That usually makes this skill's output much better.
 
 **How is this different from `/codebase-design`?**
 
@@ -110,4 +110,4 @@ The skill does not ship a good answer. People often ask for a `TYPESCRIPT.md` wi
 - [grilling](https://aihero.dev/skills-grilling) walks the decision tree after you choose a candidate.
 - [domain-modeling](https://aihero.dev/skills-domain-modeling) keeps `GLOSSARY.md` and the ADRs current as you make the decision.
 
-Its output is an idea, which goes back into the main build flow at [grill-with-docs](https://aihero.dev/skills-grill-with-docs) or [to-tickets](https://aihero.dev/skills-to-tickets). Its counterpart at the end of the main flow is [retro](https://aihero.dev/skills-retro). This skill improves the code the agent works in, and `retro` improves the environment around it (checks, standards, steering files) after a build. For which skill fits a situation, [ask-matt](https://aihero.dev/skills-ask-matt) is the router over the whole set.
+Its output is an idea, which goes back into the main build flow at [grill-with-lean](https://aihero.dev/skills-grill-with-lean) or [to-tickets](https://aihero.dev/skills-to-tickets). Its counterpart at the end of the main flow is [retro](https://aihero.dev/skills-retro). This skill improves the code the agent works in, and `retro` improves the environment around it (checks, standards, steering files) after a build. For which skill fits a situation, [ask-matt](https://aihero.dev/skills-ask-matt) is the router over the whole set.

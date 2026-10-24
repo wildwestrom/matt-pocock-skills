@@ -92,7 +92,7 @@ No. It diffs `<fixed-point>...HEAD`. The three-dot form measures from the merge-
 
 ## Where it fits
 
-`code-review` is the review step near the tail of the build chain: `grill-with-docs → to-tickets → implement → code-review → retro`. It also stands alone on any branch or PR you point it at.
+`code-review` is the review step near the tail of the build chain: `grill-with-lean → to-tickets → implement → code-review → retro`. It also stands alone on any branch or PR you point it at.
 
 - [implement](https://aihero.dev/skills-implement) is the closest neighbour. It drives the build and calls this skill as its own closing review before committing.
 - [retro](https://aihero.dev/skills-retro) comes after it and tunes it. When a session shows the review missing a class of mistake, `retro` proposes the check or the `CODING_STANDARDS.md` rule the Standards axis then reads.
