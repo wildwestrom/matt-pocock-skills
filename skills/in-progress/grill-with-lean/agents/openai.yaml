@@ -1,0 +1,5 @@
+interface:
+  display_name: "Grill with Lean"
+  short_description: "Grill a design into a Lean spec"
+policy:
+  allow_implicit_invocation: false

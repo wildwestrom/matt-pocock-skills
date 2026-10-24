@@ -53,6 +53,10 @@ One shape breaks the tracer-bullet rule. A **wide refactor** is a single mechani
 
 Where even the batches can't stay green alone, they share an integration branch and all block a final integrate-and-verify ticket. CI only has to be green at that ticket.
 
+## Open claims
+
+When the project keeps a Lean spec, every `sorry` in it is an **open claim**: a promise the spec states but has not proved. Each one becomes its own ticket, and that ticket is the second exception to vertical slicing. It is core only, its acceptance criterion is the claim, and it blocks every ticket whose shell rests on the claim, so no shell gets built on a promise nobody has proved.
+
 ## Common questions
 
 **It produced twelve tickets for a three-line change.**
