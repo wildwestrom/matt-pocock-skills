@@ -26,7 +26,8 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 4. Use **implementer subagents** to implement each ticket, each in its own worktree on its own branch. Each implementer subagent:
    - confirms its worktree is based on the integration branch before starting, and resets onto it if not;
-   - calls the Skill tool with `tdd` to build the ticket;
+   - if the project has a Lean spec, calls the Skill tool with `lean-modeling` and proves the ticket's claims first: the ticket is not done while a claim it covers is still `sorry`, and a claim that will not prove as stated is reported back rather than weakened (bring it to the user before building on it);
+   - calls the Skill tool with `tdd` to build the ticket, unless it is a core-only claim ticket, which is done once its proof lands;
    - merges the integration branch tip into its own branch before reporting done
 
 5. Once an **implementer subagent** completes, merge its work to the integration branch with a **merger subagent**.
