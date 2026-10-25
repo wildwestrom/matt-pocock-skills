@@ -32,7 +32,8 @@ Each decision lands in one of four places, and the line between them is the poin
 | --- | --- |
 | A rule about the **core** (statable without naming a screen, a file, or a clock) | A definition and a **claim** (`theorem`) in `spec/`, with the rejected alternative in the docstring |
 | A decision about **Lean code**, even code not written yet | The **scaffold**: types and signatures where the code will live, with claims stated against them |
-| A body the decisions don't settle | An **unbuilt definition**: a `sorry` in the scaffold, filled in by the ticket that builds it |
+| Any new body, even one the decision spells out | An **unbuilt definition**: a `sorry` in the scaffold, filled in by the ticket that builds it |
+| A change to **existing Lean code** | Its claims restated and left open, red against the unchanged body until a ticket changes it |
 | A **shell** decision (UI, storage, a vendor) that is hard to reverse and surprising | An ADR in `docs/adr/` |
 
 A claim the Lean writer can't prove cheaply stays a `sorry` too, but it is an **open claim**, not an unbuilt definition. `to-tickets` treats the two differently: an open claim becomes its own ticket, and an unbuilt definition is filled in by an ordinary slice.

@@ -49,10 +49,12 @@ When the user states how something works, check whether the code agrees, and whe
 
 When a decision settles, dispatch a **Lean writer** subagent in the background with the decision in English, the names agreed for it, and the full path of [LEAN.md](./LEAN.md). Don't batch these up: dispatch as they happen. The Lean stays out of your context: you hold the decisions, the Lean writer fights the type checker.
 
+The dispatch hands over a decision, not a build: no smoke tests, no runs of the code, no "fix everything downstream". Its stop condition is the one below.
+
 The Lean writer:
 
 - sets up the Lean project, if there is none, as `LEAN.md` says;
-- adds the definitions and claims the decision implies, leaving any body the decision does not settle as an unbuilt definition;
+- writes scaffolding only: the definitions and claims the decision implies, every new body as an unbuilt definition, and every existing body left as it is;
 - tries cheap proofs (`decide`, `simp`, `omega`) and leaves the rest as `sorry`;
 - stops when `lake build` passes with every statement typechecking;
 - reports only the names and statements it added, each marked proved, open, or unbuilt, and every **forced question**: a decision the model needed that the user has not made. It never answers one itself.

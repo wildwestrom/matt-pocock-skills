@@ -41,7 +41,9 @@ A claim is proved or it is open. An open claim is a `sorry`, and `to-tickets` tu
 
 ## Lean code
 
-When the code is Lean, the shell runs the core directly, and a claim can sit on the code itself. Write the **scaffold** of each agreed piece where the code will live: its types and signatures in full, and every body the decisions do not settle as `sorry`. That `sorry` is an **unbuilt definition**, not a claim: the ticket that builds the behaviour fills it in. State each claim against the scaffold straight away, so the claims are red before any body exists.
+When the code is Lean, the shell runs the core directly, and a claim can sit on the code itself. Write the **scaffold** of each agreed piece where the code will live: its types and signatures in full, and every new body as `sorry`, even one the decision spells out. That `sorry` is an **unbuilt definition**, not a claim: the ticket that builds the behaviour fills it in. State each claim against the scaffold straight away, so the claims are red before any body exists.
+
+A decision that changes existing code changes its claims, not its bodies. Leave the existing body as it is, and restate each claim the decision changes, open, so it is red against the old body. A proof that stops building becomes `sorry`, reported open, and is not repaired. A decision that touches only shell code (an executable's output, its exit codes) goes in the docstring of the code it touches. Never run the code: `lake build` is the only check, and making the behaviour work is the ticket's job.
 
 ## Names
 
