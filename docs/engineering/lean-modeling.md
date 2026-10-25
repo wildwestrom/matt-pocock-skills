@@ -29,7 +29,7 @@ The test is one sentence: **a rule is core when it can be stated without naming 
 | A decision is recorded as | A definition and its claims, with the rejected alternative in the docstring | An ADR, only if it is hard to reverse, surprising, and a real trade-off |
 | Reaches the other side by | Being run by the shell, or being the **oracle** the shell's tests compare against | Calling the core, or being checked against it |
 
-When the code itself is Lean, a decision about that code goes into the code: the Lean writer writes its **scaffold** where the code will live, types and signatures in full, with each unsettled body left as a `sorry`. That `sorry` is an **unbuilt definition**. Claims sit right after the definitions they are about, so they exist before any body does. Only decisions about the core model go to `spec/`.
+When the code itself is Lean, a decision about that code goes into the code: the Lean writer writes its **scaffold** where the code will live, types and signatures in full, with every new body left as a `sorry`, even one the decision spells out. That `sorry` is an **unbuilt definition**. Claims sit right after the definitions they are about, so they exist before any body does. A decision that changes existing code restates its claims and leaves its bodies alone, so the new claims are red until a ticket changes the behaviour. The writer never runs the code or repairs what the change breaks downstream. Only decisions about the core model go to `spec/`.
 
 ## Claims, open and proved
 
