@@ -153,7 +153,7 @@ This concision pays off session after session.
 
 </details>
 
-This is built into [`/grill-with-lean`](./skills/engineering/grill-with-lean/SKILL.md). It's a grilling session, but the names you agree become the types, functions and theorems of a Lean spec, so the shared language is one the compiler checks. Hard-to-explain decisions that the spec can't hold go in ADRs. For a plain-English glossary instead, [`/domain-modeling`](./skills/engineering/domain-modeling/SKILL.md) builds `GLOSSARY.md`.
+This is built into [`/grill-with-lean`](./skills/engineering/grill-with-lean/SKILL.md). It's a grilling session, but the names you agree become the types, functions and theorems of a Lean spec, so the shared language is one the compiler checks. Hard-to-explain decisions that the spec can't hold go in ADRs.
 
 It's hard to explain how powerful this is. It might be the single coolest technique in this repo. Try it, and see.
 
@@ -232,7 +232,6 @@ Skills I use daily for code work.
 - **[diagnosing-bugs](./skills/engineering/diagnosing-bugs/SKILL.md)**: Disciplined diagnosis loop for hard bugs and performance regressions: build a feedback loop that goes red on this bug → minimise → hypothesise → instrument → fix → regression-test.
 - **[research](./skills/engineering/research/SKILL.md)**: Investigate a question against high-trust primary sources and capture the findings as a cited Markdown file in the repo, run as a background agent.
 - **[tdd](./skills/engineering/tdd/SKILL.md)**: Test-driven development with a red-green-refactor loop. Builds features or fixes bugs one vertical slice at a time.
-- **[domain-modeling](./skills/engineering/domain-modeling/SKILL.md)**: Actively build and sharpen a project's domain model: challenge terms against the glossary, stress-test with edge-case scenarios, and update `GLOSSARY.md` and ADRs inline.
 - **[lean-modeling](./skills/engineering/lean-modeling/SKILL.md)**: Build and sharpen a project's Lean spec: challenge names, stress-test with scenarios, and hand each settled decision to a background Lean writer, with ADRs for shell decisions only.
 - **[codebase-design](./skills/engineering/codebase-design/SKILL.md)**: Shared discipline and vocabulary for designing deep modules: a lot of behaviour behind a small interface, placed at a clean seam, testable through that interface.
 - **[code-review](./skills/engineering/code-review/SKILL.md)**: Two-axis review of the diff since a fixed point: **Standards** (does it follow the repo's coding standards, plus a Fowler smell baseline?) and **Spec** (does it faithfully implement the originating issue/spec?), run as parallel sub-agents so neither pollutes the other.
@@ -249,7 +248,7 @@ General workflow tools, not code-specific.
 - **[handoff](./skills/productivity/handoff/SKILL.md)**: Compact the current conversation into a handoff document so another agent can continue the work.
 - **[teach](./skills/productivity/teach/SKILL.md)**: Teach the user a new skill or concept over multiple sessions, using the current directory as a stateful teaching workspace.
 - **[to-questionnaire](./skills/productivity/to-questionnaire/SKILL.md)**: Turn a decision you can't answer alone into a Markdown questionnaire for the one person who can, filled in async, or together over a meeting. It grills you about the send (who it's for, what you need back), not the subject.
-- **[wait-what](./skills/productivity/wait-what/SKILL.md)**: Fire this the moment a message doesn't land. The agent re-pitches it with the context you're missing, in plain English, using your `GLOSSARY.md` vocabulary.
+- **[wait-what](./skills/productivity/wait-what/SKILL.md)**: Fire this the moment a message doesn't land. The agent re-pitches it with the context you're missing, in plain English, using your Lean spec's terms.
 
 **Model-invoked**
 

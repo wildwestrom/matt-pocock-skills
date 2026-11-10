@@ -27,9 +27,9 @@ Where it is confusable with siblings:
 
 ## Prerequisites
 
-None to run it. If `GLOSSARY.md` or ADRs in `docs/adr/` exist, it reads them and uses your domain's own nouns. A candidate then reads as "deepen the Order intake module," not "refactor the FooBarHandler."
+None to run it. If a Lean spec or ADRs in `docs/adr/` exist, it reads them and uses your domain's own nouns. A candidate then reads as "deepen the Order intake module," not "refactor the FooBarHandler."
 
-It writes in two places. The report goes to `<tmpdir>/architecture-review-<timestamp>.html`, outside the repo. During the grilling loop it adds or sharpens terms in `GLOSSARY.md`, and creates that file if it does not exist. It also offers to record a rejected candidate as an ADR, so a future run does not suggest it again.
+It writes in two places. The report goes to `<tmpdir>/architecture-review-<timestamp>.html`, outside the repo. During the grilling loop it hands each name you agree to a background Lean writer, which adds it to the spec (and sets the spec up if there is none). It also offers to record a rejected candidate as an ADR, so a future run does not suggest it again.
 
 ## Depth, and the report that hunts for it
 
@@ -75,7 +75,7 @@ Prompt it with the next thing you are building. If a big build is coming up, poi
 
 **Does it work on a large legacy codebase?**
 
-Partly. It works well on big existing codebases that lack consistent structure, and it is the recommended upkeep tool after any one-time structural setup. But users with out-of-control projects report it "helped a little but still doesn't seem to cut it." One developer with an eight-year-old legacy codebase reported that the model went in circles, though the same skill produces a clean graph on a tidy repo. There is no dedicated `/refactor` skill for that case yet. If the codebase has no shared vocabulary, run [grill-with-lean](https://aihero.dev/skills-grill-with-lean) or [domain-modeling](https://aihero.dev/skills-domain-modeling) first to create one. That usually makes this skill's output much better.
+Partly. It works well on big existing codebases that lack consistent structure, and it is the recommended upkeep tool after any one-time structural setup. But users with out-of-control projects report it "helped a little but still doesn't seem to cut it." One developer with an eight-year-old legacy codebase reported that the model went in circles, though the same skill produces a clean graph on a tidy repo. There is no dedicated `/refactor` skill for that case yet. If the codebase has no shared vocabulary, run [grill-with-lean](https://aihero.dev/skills-grill-with-lean) first to create one. That usually makes this skill's output much better.
 
 **How is this different from `/codebase-design`?**
 
@@ -108,6 +108,6 @@ The skill does not ship a good answer. People often ask for a `TYPESCRIPT.md` wi
 
 - [codebase-design](https://aihero.dev/skills-codebase-design) owns the depth-and-seam vocabulary that every candidate uses.
 - [grilling](https://aihero.dev/skills-grilling) walks the decision tree after you choose a candidate.
-- [domain-modeling](https://aihero.dev/skills-domain-modeling) keeps `GLOSSARY.md` and the ADRs current as you make the decision.
+- [lean-modeling](https://aihero.dev/skills-lean-modeling) keeps the Lean spec and the ADRs current as you make the decision.
 
 Its output is an idea, which goes back into the main build flow at [grill-with-lean](https://aihero.dev/skills-grill-with-lean) or [to-tickets](https://aihero.dev/skills-to-tickets). Its counterpart at the end of the main flow is [retro](https://aihero.dev/skills-retro). This skill improves the code the agent works in, and `retro` improves the environment around it (checks, standards, steering files) after a build. For which skill fits a situation, [ask-matt](https://aihero.dev/skills-ask-matt) is the router over the whole set.
