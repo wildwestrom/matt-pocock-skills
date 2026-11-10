@@ -23,7 +23,7 @@ Actively build and sharpen the project's Lean spec as you design: challenging na
 └── src/
 ```
 
-Create files lazily: only when you have something to write. If no Lean project exists, ask the user two questions before the first decision goes to the Lean writer: where the spec lives (`spec/` at the repo root unless they say otherwise), and whether it depends on Mathlib. The Lean writer sets it up from there. If no `docs/adr/` exists, create it when the first ADR is needed.
+Create files lazily: only when you have something to write. If no Lean project exists, two answers are needed before the first decision goes to the Lean writer: where the spec lives, and whether it depends on Mathlib. Take them from `docs/agents/domain.md`, which `/setup-matt-pocock-skills` writes; ask the user only for what it doesn't say (`spec/` at the repo root unless they say otherwise). The Lean writer sets it up from there. If no `docs/adr/` exists, create it when the first ADR is needed.
 
 When the code is Lean, a decision about that code goes into the code itself, even code not yet written: the Lean writer writes its **scaffold** where the code will live, and its claims sit after the definitions they are about. Only a decision about the core model goes to `spec/`.
 
@@ -55,6 +55,7 @@ The Lean writer:
 
 - sets up the Lean project, if there is none, as `LEAN.md` says;
 - writes scaffolding only: the definitions and claims the decision implies, every new body as an unbuilt definition, and every existing body left as it is;
+- uses only the public names the decision gave it, each with a plain-English docstring; any other name the model needs is a forced question;
 - tries cheap proofs (`decide`, `simp`, `omega`) and leaves the rest as `sorry`;
 - stops when `lake build` passes with every statement typechecking;
 - reports only the names and statements it added, each marked proved, open, or unbuilt, and every **forced question**: a decision the model needed that the user has not made. It never answers one itself.

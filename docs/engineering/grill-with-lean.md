@@ -14,7 +14,6 @@ You invoke this by typing `/grill-with-lean`. The [agent](https://www.aihero.dev
 | No repo, or the subject isn't code | [grill-me](https://aihero.dev/skills-grill-me) |
 | Too big for one [session](https://www.aihero.dev/ai-coding-dictionary/session), the route still unclear | [wayfinder](https://aihero.dev/skills-wayfinder) |
 | The answers are in someone else's head | [to-questionnaire](https://aihero.dev/skills-to-questionnaire) |
-| You only want the words in a plain-English `GLOSSARY.md` | [domain-modeling](https://aihero.dev/skills-domain-modeling) |
 
 It is the head of the main build flow. When the frontier is empty, hand the same conversation to [to-tickets](https://aihero.dev/skills-to-tickets) without [clearing](https://www.aihero.dev/ai-coding-dictionary/clearing).
 

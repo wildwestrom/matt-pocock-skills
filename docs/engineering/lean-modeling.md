@@ -12,12 +12,11 @@ Type `/lean-modeling`, or the agent reaches for it when you discuss the codebase
 | --- | --- |
 | You want the whole plan interrogated before you build | [grill-with-lean](https://aihero.dev/skills-grill-with-lean), which drives this skill |
 | One rule or name needs settling mid-task | `lean-modeling` directly |
-| The words are the problem and you want prose, not Lean | [domain-modeling](https://aihero.dev/skills-domain-modeling) |
 | The module's *shape* is the problem: where the seam goes, how deep the interface is | [codebase-design](https://aihero.dev/skills-codebase-design) |
 
 ## Prerequisites
 
-None up front, but the Lean writer needs `lake`. If the repo has no Lean project, the skill asks two questions before the first decision goes to the writer: where the spec lives (`spec/` at the repo root unless you say otherwise), and whether it depends on Mathlib. The writer then runs `lake init` there. `docs/adr/` is created with the first ADR.
+None up front, but the Lean writer needs `lake`. If the repo has no Lean project, the writer needs two answers before the first decision: where the spec lives (`spec/` at the repo root unless you say otherwise), and whether it depends on Mathlib. [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills) records both in `docs/agents/domain.md`; the skill asks only for what that file doesn't say. The writer then runs `lake init` there and turns on `linter.missingDocs`. `docs/adr/` is created with the first ADR.
 
 ## Core or shell
 
@@ -35,6 +34,15 @@ When the code itself is Lean, a decision about that code goes into the code: the
 
 A claim has an English name a reader of the spec must understand (`Order.refund_neverExceedsTheCharge`). The writer tries cheap proofs (`decide`, `simp`, `omega`) and leaves the rest as `sorry`, an **open claim**. [to-tickets](https://aihero.dev/skills-to-tickets) turns each open claim into its own ticket, and no `sorry` reaches `main`. A claim weakened to get a proof through is a different claim, so the weaker statement goes back to you first.
 
+## Names
+
+The spec replaces a glossary, so its names have to be ones a person can reason about. Two rules keep them that way:
+
+- **You choose every public name.** The writer only uses the names the decision gave it. When the model needs another type, constructor, or function, it comes back as a forced question with a proposed name, rather than as something the writer made up to get past the type checker. Plumbing it needs only for the next line is `private` or a `lemma`, and stays out of the vocabulary.
+- **Every public definition has a plain-English docstring.** The first sentence says what it means, with no Lean in it. That sentence is the glossary entry, and it is what other skills quote when they borrow the spec's vocabulary. Lean's `linter.missingDocs` flags any definition, type, constructor, or field without one. Claims are exempt, because their names are already English.
+
+A rename is an ordinary decision. If the callers can't all move in one change, the old name stays as a `@[deprecated]` alias for a couple of commits at most. [code-review](https://aihero.dev/skills-code-review) flags any alias a diff leaves behind.
+
 ## Forced questions
 
 The writer never decides anything. When the model needs a decision you haven't made, it reports a **forced question**, and the skill puts it to you. Writing the Lean is how the gaps in a design come to light: a type that won't close, a function with no answer for an edge case.
@@ -42,16 +50,20 @@ The writer never decides anything. When the model needs a decision you haven't m
 ## Common questions
 
 **Why not a `GLOSSARY.md`?**
-A glossary is checked by nobody. A name in the spec is used by every claim about it, so a term that drifts breaks the build. If you want the plain-English glossary anyway, [domain-modeling](https://aihero.dev/skills-domain-modeling) still builds one.
+A glossary is checked by nobody. A name in the spec is used by every claim about it, so a term that drifts breaks the build. Keeping both would give the project two sources of truth that drift apart, so the spec is the only one: the old `domain-modeling` skill that built `GLOSSARY.md` is retired.
+
+**The names still came out opaque. What now?**
+First, rename them: a rename is a decision like any other, so settle the new name and hand it to the writer. If it keeps happening even with both name rules in place, the next step is a **cold-read check**, which isn't built yet. When the writer reports back, a small subagent gets only each new public name and its type signature, without the docstring, and writes down what it thinks the name means. Where its guess and the docstring disagree, the name goes back to you as a rename. It catches names that are documented but still misleading, for the price of one cheap agent call per dispatch.
 
 ## It's working if
 
 - `lake build` passes, and every `sorry` is an open claim or an unbuilt definition.
 - The writer's reports list names and statements, not Lean source, and each is marked proved, open, or unbuilt.
-- Forced questions come back to you rather than being answered silently.
+- Forced questions come back to you rather than being answered silently, including any new name the model needed.
+- `lake build` prints no `missing doc string` warning, and every public name's docstring reads as plain English.
 - ADRs only ever describe shell decisions, and a core decision's rejected alternative is in a docstring.
 - The project `README.md` lists the spec files in reading order.
 
 ## Where it fits
 
-`lean-modeling` is a **model-invoked reference** that runs underneath [grill-with-lean](https://aihero.dev/skills-grill-with-lean), the head of the main build chain. Its output feeds the rest of the chain: [to-tickets](https://aihero.dev/skills-to-tickets) turns open claims into tickets, [implement](https://aihero.dev/skills-implement) builds against the claims, and [code-review](https://aihero.dev/skills-code-review) checks the diff keeps them. Its prose sibling is [domain-modeling](https://aihero.dev/skills-domain-modeling). For which skill fits a situation, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.
+`lean-modeling` is a **model-invoked reference** that runs underneath [grill-with-lean](https://aihero.dev/skills-grill-with-lean), the head of the main build chain. Its output feeds the rest of the chain: [to-tickets](https://aihero.dev/skills-to-tickets) turns open claims into tickets, [implement](https://aihero.dev/skills-implement) builds against the claims, and [code-review](https://aihero.dev/skills-code-review) checks the diff keeps them. For which skill fits a situation, [ask-matt](https://aihero.dev/skills-ask-matt) routes you.

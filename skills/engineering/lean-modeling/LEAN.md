@@ -19,6 +19,7 @@ A **claim** is a promise the spec makes. It is a `theorem` with an English name 
 
 ```lean
 open Lean.Parser.Command in
+/-- `lemma` is `theorem` for plumbing: a step the next line needs, not a claim the spec makes. -/
 macro (name := lemmaCmd) mods:declModifiers "lemma " id:declId sig:declSig val:declVal :
     command => `(command| $mods:declModifiers theorem $id $sig $val)
 ```
@@ -49,6 +50,20 @@ A decision that changes existing code changes its claims, not its bodies. Leave 
 
 The spec is worth something only when everyone is sure what it says, and names carry most of that. An unclear name is a forced question: propose the rename to the user, and expect several rounds.
 
+A **public name** is the spec's vocabulary: a type, a function, a constructor, a field, a claim. Every public name is one the user agreed. The Lean writer never coins one: when the model needs a name the decision didn't give it, that is a forced question, sent with the name it would propose. A name only the next line needs is plumbing: make it `private`, or a `lemma`, and Lean's conventions apply.
+
+Every public definition, type, constructor, and field opens with a docstring whose first sentence says what it means in the user's words, with no Lean in it. That sentence is the spec's glossary: skills that borrow the spec's vocabulary quote it, not the identifier. A claim needs none, since its name is already English. `linter.missingDocs` is on (see [Setup](#setup)), so a missing docstring is a build warning.
+
+**A rename** is a decision like any other. When callers can't all move in the same change, keep the old name as a deprecated alias with a one-line docstring:
+
+```lean
+/-- Old name for `cancelLine`. -/
+@[deprecated cancelLine (since := "2026-11-11")]
+def cancel := @cancelLine
+```
+
+An alias is temporary. It lets a rename be split across a couple of commits, and is deleted once the last caller has moved, never kept so the old name lives on.
+
 A distinction drawn only in names (`UserId` and `OrderId` as two `abbrev`s over `Nat`, two constructors one branch handles alike) is **semantic but not behavioural**: the compiler and every proof treat both the same. List it in the project's spec gaps until the user decides whether it gets teeth.
 
 ## Reading order
@@ -61,12 +76,20 @@ When the project has no Lean spec yet, the user has already said where it lives 
 
 1. Run `lake --version`. If `lake` is missing, stop and report it: installing a toolchain is the user's call.
 2. In the agreed directory, run `lake init Spec lib`, or `lake init Spec math` with Mathlib.
-3. Without Mathlib, put the `lemma` macro in its own file, imported by every spec file.
-4. Start the reading order in the project `README.md`.
+3. Turn on the docstring check in `lakefile.toml`:
+
+   ```toml
+   [leanOptions]
+   linter.missingDocs = true
+   ```
+
+4. Without Mathlib, put the `lemma` macro in its own file, imported by every spec file.
+5. Start the reading order in the project `README.md`.
 
 ## Done
 
 - `lake build` passes, and every `sorry` is an open claim or an unbuilt definition.
+- The build prints no `missing doc string` warning.
 - Every new rule has a claim, or is in the spec gaps as open.
 - The project's spec lint, if it has one, passes.
 - The reading order in `README.md` is current.
