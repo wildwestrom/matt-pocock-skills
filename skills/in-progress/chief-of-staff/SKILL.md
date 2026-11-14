@@ -50,8 +50,8 @@ The wiki is a historical record. It never claims to describe how things are now,
 
 Some procedures you run live in other skills, installed beside this one. To run one, read its `SKILL.md` at the path below, relative to this skill's directory, and follow it.
 
-- **Retro** (`../retro/SKILL.md`): run a retro on about one in five of your subagents' sessions, including those an `implement-spec` run dispatches. Pick first the ones where something went wrong. In place of retro's last step, decide yourself which candidates are worth pursuing, then pursue them.
-- **Large chunks of work**: write a spec with `../to-spec/SKILL.md`, break it into tickets with `../to-tickets/SKILL.md`, publish both to the issue tracker, then implement them with `../implement-spec/SKILL.md`.
+- **Retro** (`../retro/SKILL.md`): run a retro on about one in five of your subagents' sessions, including the implementers you dispatch for large chunks of work. Pick first the ones where something went wrong. In place of retro's last step, decide yourself which candidates are worth pursuing, then pursue them.
+- **Large chunks of work**: break the work into tickets with `../to-tickets/SKILL.md`, publish them to the issue tracker, then implement each ticket with `../implement/SKILL.md` in its own fresh subagent, starting a ticket only once its blockers are done.
 
 ## Strategic View
 
